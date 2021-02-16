@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<math.h>
+void sushu(int x)//利用函数解决问题
+{
+	int i; int p = 0;
+	if (x <= 1)
+		printf("请输入大于等于2的整数\n");
+	else if (x==2 ||x==3)
+		printf("%d是素数\n", x);//判断方式利用开方法，2和3会有bug
+	else
+	for (i = 2; i <= (int)sqrt(x); i++)
+	{
+		if (x%i == 0)
+		{
+			printf("%d是合数\n", x);
+			p = 1;//标记素数
+			break;
+		}
+		if (i == (int)sqrt(x))
+			printf("%d是素数\n", x);
+	}//完成判断是否是素数的工作
+	if (p==1)//通过前面的判断分解质因数
+	for (i = 2; i <= (int)sqrt(x); i++)
+	{
+		if (x%i == 0)
+			printf("%d=%d*%d\n", x,i,x/i);
+	}
+}
+int main()
+{
+	int x;
+	printf("请输入整数"); scanf("%d", &x);
+	sushu(x);
+	return 0;
+}
