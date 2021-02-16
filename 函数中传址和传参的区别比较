@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int add1(int*p)
+{
+	return (*p)++;
+}
+int add2(int p)
+{
+	return p++;
+}
+main()
+{
+	int num ;
+	scanf("%d", &num);
+	int num1=add1(&num);
+	int num2=add2(num);
+	printf("传址：%d\n传参：%d\n", num1,num2);
+	return 0;
+}
