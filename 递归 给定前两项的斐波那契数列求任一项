@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int fib(int n,int x1,int x2)
+{
+	if (n==1)
+		return x1;
+	else if (n == 2)
+		return x2;
+	else
+		return fib(n - 1,x1,x2) + fib(n - 2,x1,x2);
+}
+
+main()
+{
+	int num; int a; int b;
+	printf("请输入斐波那契数列第一项:"); scanf("%d", &a);
+	printf("请输入斐波那契数列第二项:"); scanf("%d", &b);
+	printf("请输入要算出第几项:"); scanf("%d", &num);
+	printf("该斐波那契数列第%d项是%d\n",num,fib(num,a,b));
+	return 0;
+}
