@@ -2,6 +2,7 @@
 #include<stdio.h>
 void bubble(int arr[10])
 {
+	int flag = 1;//这里的flag是优化算法，如果某层循环未进行交换，则说明已经按序排列，可停止循环
 	int temp;
 	for (int i = 1; i < 10 ; i++)
 	{
@@ -12,7 +13,12 @@ void bubble(int arr[10])
 				temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
+				flag = 0;
 			}
+		}
+		if (flag == 1)
+		{
+			break;
 		}
 	}
 }
