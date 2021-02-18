@@ -1,3 +1,4 @@
+//注意对比递归与迭代的工作量
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 int fib(int n,int x1,int x2)
@@ -9,7 +10,26 @@ int fib(int n,int x1,int x2)
 	else
 		return fib(n - 1,x1,x2) + fib(n - 2,x1,x2);
 }
-
+//这是递归思路，计算会稍显复杂
+//或者
+int fib(int n,int x1,int x2)
+{
+	int i = 0; int sum; int tmp;
+	if (n==1)
+		return x1;
+	else if (n == 2)
+		return x2;
+	else
+	while (i < n-2)
+	{
+		tmp = x1;
+		x1 = x2;
+		x2 = tmp+ x2;
+		i++;
+	}
+	return x2;
+}
+//这是迭代思路，十分简洁
 main()
 {
 	int num; int a; int b;
